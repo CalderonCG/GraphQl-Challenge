@@ -1,4 +1,4 @@
-import type { ErrorLike } from "@apollo/client";
+import type { ApolloError} from "@apollo/client";
 import type { CharacterArray } from "../../App";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import Loader from "../Loader/Loader";
@@ -9,7 +9,7 @@ import type { NetworkStatus } from "@apollo/client";
 type ListProps = {
   characters: CharacterArray;
   loading: boolean;
-  error: ErrorLike | undefined;
+  error: ApolloError | undefined;
   loadMoreRef: React.RefObject<HTMLDivElement | null>
   networkStatus: NetworkStatus
   handleSelect: React.Dispatch<React.SetStateAction<string | null>>;

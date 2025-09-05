@@ -3,19 +3,25 @@ documents: "src/queries/**/*.ts"
 generates:
   src/generated/graphql.ts:
     plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-react-apollo"
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
     config:
-      # 🔑 Esto evita que te aparezca `?` en todos lados
+      # Campos no null → obligatorios
       avoidOptionals:
-        field: true      # los campos no null del schema → obligatorios
+        field: true
         inputValue: false
         object: true
-      # 🔑 Ajusta cómo se generan valores nulos
+      # Ajusta cómo se representan los nulos
       maybeValue: T | null
-      # 🔑 Opcional: fuerza arrays no nulos si el schema los marca así
+      # Mantén los arrays fieles al schema
       arrayInputCoercion: false
-      # 🔑 Opcional: agrega __typename siempre
+      # Siempre agrega __typename
       nonOptionalTypename: true
-      
+      # Exporta enums como const (en vez de enum runtime)
+      enumsAsConst: true
+      # Importante: hooks compatibles con Apollo 3.x
+      apolloClientVersion: 3
+      # Desactiva Suspense (Apollo 3.x no lo soporta de forma estable)
+      withHooks: true
+      withSuspense: false

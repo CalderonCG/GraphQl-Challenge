@@ -8,7 +8,7 @@ function Loader() {
   <div className="loader_icon_wrapper">
     <FadeLoader color="#A6A6A6"  />
   </div>
-  <p className="loader_label">Loading</p>
+  <p className="loader_label">Loading...</p>
 </div>
 
   );

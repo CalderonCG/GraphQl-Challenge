@@ -18,11 +18,12 @@ export type Scalars = {
   Upload: { input: any; output: any; }
 };
 
-export enum CacheControlScope {
-  Private = 'PRIVATE',
-  Public = 'PUBLIC'
-}
+export const CacheControlScope = {
+  Private: 'PRIVATE',
+  Public: 'PUBLIC'
+} as const;
 
+export type CacheControlScope = typeof CacheControlScope[keyof typeof CacheControlScope];
 export type Character = {
   __typename: 'Character';
   /** Time at which the character was created in the database. */
