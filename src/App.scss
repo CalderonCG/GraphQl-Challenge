@@ -1,0 +1,45 @@
+// App.scss
+@use "./styles/variables" as v;
+
+.app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &_header {
+    flex: 0 0 32px;
+    width: 100%;
+    padding: 16px 33px;
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: v.$Primary;
+    font-size: 17px;
+    font-weight: 700;
+    gap: 1rem;
+    @media (max-width: 1000px) {
+      padding: 0 16px;
+      flex: 0 0 52px;
+    }
+
+    &_icon {
+      display: none;
+      font-size: 2rem;
+
+      @media (max-width: 1000px) {
+        display: flex;
+      }
+    }
+  }
+
+  &_container {
+    flex: 1 1 auto;
+    display: flex;
+    overflow: hidden;
+
+    @media (max-width: 1000px) {
+      overflow: auto;
+    }
+  }
+}
