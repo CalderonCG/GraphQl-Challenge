@@ -13,11 +13,13 @@
         transform: scale(1.5);
     }
 
+
+
     
     &_data{
         display: flex;
         flex-direction: column;
-
+ 
         &_name{
             font-size: 17px;
             font-weight: 700px;

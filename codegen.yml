@@ -7,21 +7,14 @@ generates:
       - typescript-operations
       - typescript-react-apollo
     config:
-      # Campos no null → obligatorios
       avoidOptionals:
         field: true
         inputValue: false
         object: true
-      # Ajusta cómo se representan los nulos
       maybeValue: T | null
-      # Mantén los arrays fieles al schema
       arrayInputCoercion: false
-      # Siempre agrega __typename
       nonOptionalTypename: true
-      # Exporta enums como const (en vez de enum runtime)
       enumsAsConst: true
-      # Importante: hooks compatibles con Apollo 3.x
       apolloClientVersion: 3
-      # Desactiva Suspense (Apollo 3.x no lo soporta de forma estable)
       withHooks: true
       withSuspense: false

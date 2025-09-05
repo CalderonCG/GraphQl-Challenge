@@ -1,24 +1,35 @@
-import type { ApolloError} from "@apollo/client";
+import type { ApolloError } from "@apollo/client";
 import type { CharacterArray } from "../../App";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import Loader from "../Loader/Loader";
 import "./List.scss";
 import type { NetworkStatus } from "@apollo/client";
+import clsx from "clsx";
 
 //Types-------------------
 type ListProps = {
   characters: CharacterArray;
   loading: boolean;
   error: ApolloError | undefined;
-  loadMoreRef: React.RefObject<HTMLDivElement | null>
-  networkStatus: NetworkStatus
+  loadMoreRef: React.RefObject<HTMLDivElement | null>;
+  networkStatus: NetworkStatus;
   handleSelect: React.Dispatch<React.SetStateAction<string | null>>;
-  
+  showSideBar: boolean;
 };
-function List({ characters, loading, loadMoreRef, handleSelect, error, networkStatus }: ListProps) {
+function List({
+  characters,
+  loading,
+  loadMoreRef,
+  error,
+  networkStatus,
+  showSideBar,
+  handleSelect,
+}: ListProps) {
   return (
-    <div className="list">
-      {(loading  && networkStatus === 1) ? (
+    <div className={clsx("list",{
+      display: showSideBar
+    })}>
+      {loading && networkStatus === 1 ? (
         <Loader />
       ) : error ? (
         <p className="error">Failed to Load Data</p>
@@ -38,8 +49,8 @@ function List({ characters, loading, loadMoreRef, handleSelect, error, networkSt
         </>
       )}
       <div ref={loadMoreRef}></div>
-      
-      {(loading && networkStatus !== 1) && <Loader/>}
+
+      {loading && networkStatus !== 1 && <Loader />}
     </div>
   );
 }

@@ -7,7 +7,7 @@ type CharacterProps = {
   species: string;
   handleSelect: React.Dispatch<React.SetStateAction<string | null>>;
 };
-function CharacterCard({ id, name, species, handleSelect }: CharacterProps) {
+function CharacterCard({ id, name, species, handleSelect}: CharacterProps) {
   return (
     <div className="card" onClick={()=> handleSelect(id)}>
       <div className="card_data">

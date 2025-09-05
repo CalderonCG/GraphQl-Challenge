@@ -1,7 +1,8 @@
 import type { GetCharacterByIdQuery } from "../generated/graphql";
 
-export const characterAdapter = (character: GetCharacterByIdQuery | null) =>{
-    if (character === null) {
+export const characterAdapter = (character: GetCharacterByIdQuery | null | undefined
+) =>{
+    if (character === null || character === undefined) {
         return null
     }
     const newCharacter = {

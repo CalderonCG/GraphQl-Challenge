@@ -5,12 +5,22 @@
     width: 350px;
     height: 100%;
     max-height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-right: 1px solid v.$Border;
     padding-left: 15px;
+    background-color: v.$Background;
+
+    @media (max-width: 1000px) {
+        display: none;
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        height: calc(100% - 52px);
+    }
+    
 }
 
 .error{
@@ -18,4 +28,8 @@
     font-weight: 700;
     font-size: 17px;
     margin-top: 16px;
+}
+
+.display{
+    display: flex;
 }
