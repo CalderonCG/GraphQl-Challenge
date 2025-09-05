@@ -15,5 +15,19 @@ query GetCharacters($page: Int!){
     }
   }
 }
+`
 
+export const GET_BY_ID= gql`
+query GetCharacterById($id: ID!) {
+  character(id: $id){
+    image
+    name
+    species
+    status
+    gender
+    location{name}
+    origin{name}
+    episode{name}
+  }
+}
 `

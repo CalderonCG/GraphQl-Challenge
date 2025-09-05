@@ -1,9 +1,15 @@
 import './DetailCard.scss'
-function DetailCard() {
+
+type DetailProps={
+  name: string,
+  value?: string | null | undefined;
+}
+
+function DetailCard({name,value}: DetailProps) {
   return (
     <div className='detail'>
-        <p className='detail_name'>Property name</p>
-        <p className='detail_value'>Value</p>
+        <p className='detail_name'>{name}</p>
+        <p className='detail_value'>{value}</p>
     </div>
   )
 }
