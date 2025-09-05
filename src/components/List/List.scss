@@ -13,6 +13,10 @@
     padding-left: 15px;
     background-color: v.$Background;
 
+    
+    scrollbar-color: v.$Text_Dark v.$Background;
+    scrollbar-width: thin;
+
     @media (max-width: 1000px) {
         display: none;
         position: absolute;
