@@ -1,0 +1,39 @@
+@use '../../styles/variables' as v;
+
+
+.card{
+    width: 100%;
+    border-bottom: 1px solid v.$Border;
+    padding: 16px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:hover &_icon{
+        transform: scale(1.5);
+    }
+
+    
+    &_data{
+        display: flex;
+        flex-direction: column;
+
+        &_name{
+            font-size: 17px;
+            font-weight: 700px;
+            color: v.$Text_Dark;
+        }
+
+        &_specie{
+            
+            font-size: 14px;
+            font-weight: 400px;
+            color: v.$Text_Light;
+        }
+    }
+
+    &_icon{
+        font-size: 24px;
+        margin-right: 24px;
+    }
+}
