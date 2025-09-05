@@ -3,18 +3,22 @@ import type { CharacterArray } from "../../App";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import Loader from "../Loader/Loader";
 import "./List.scss";
+import type { NetworkStatus } from "@apollo/client";
 
 //Types-------------------
 type ListProps = {
   characters: CharacterArray;
   loading: boolean;
   error: ErrorLike | undefined;
+  loadMoreRef: React.RefObject<HTMLDivElement | null>
+  networkStatus: NetworkStatus
   handleSelect: React.Dispatch<React.SetStateAction<string | null>>;
+  
 };
-function List({ characters, loading, handleSelect, error }: ListProps) {
+function List({ characters, loading, loadMoreRef, handleSelect, error, networkStatus }: ListProps) {
   return (
     <div className="list">
-      {loading ? (
+      {(loading  && networkStatus === 1) ? (
         <Loader />
       ) : error ? (
         <p className="error">Failed to Load Data</p>
@@ -33,6 +37,9 @@ function List({ characters, loading, handleSelect, error }: ListProps) {
           )}
         </>
       )}
+      <div ref={loadMoreRef}></div>
+      
+      {(loading && networkStatus !== 1) && <Loader/>}
     </div>
   );
 }

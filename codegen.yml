@@ -18,3 +18,4 @@ generates:
       arrayInputCoercion: false
       # 🔑 Opcional: agrega __typename siempre
       nonOptionalTypename: true
+      
