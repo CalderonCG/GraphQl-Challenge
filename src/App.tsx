@@ -13,7 +13,6 @@ export type CharacterArray =
 function App() {
   //States------------------------------------------------
   const [selectedCharacter, setSelectedCharacter] = useState<string|null>(null);
-  console.log(selectedCharacter)
 
 
   //Queries---------------------------------------------------

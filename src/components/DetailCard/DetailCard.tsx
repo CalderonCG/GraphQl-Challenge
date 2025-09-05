@@ -2,7 +2,7 @@ import './DetailCard.scss'
 
 type DetailProps={
   name: string,
-  value?: string | null | undefined;
+  value?: string;
 }
 
 function DetailCard({name,value}: DetailProps) {

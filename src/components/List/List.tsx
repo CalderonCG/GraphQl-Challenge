@@ -17,10 +17,11 @@ function List({ characters, loading, handleSelect }: ListProps) {
   }
   return (
     <div className="list">
-      {characters?.map((character) => (
-        <CharacterCard key={character?.id} id={character?.id} name={character?.name}
-        species={character?.species} handleSelect={handleSelect}/>
-      ))}
+      {characters?.map((character) => 
+        character?.id && character.name && character.species ? (
+        <CharacterCard key={character.id} id={character.id} name={character.name}
+        species={character.species} handleSelect={handleSelect}/>  ) : null
+      )}
     </div>
   );
 }
