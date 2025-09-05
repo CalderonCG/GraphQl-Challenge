@@ -1,12 +1,15 @@
 import { RiArrowRightSLine } from "react-icons/ri";
 import "./CharacterCard.scss";
 
+// Types---------------------------------------------------------
 type CharacterProps = {
   id: string;
   name: string;
   species: string;
   handleSelect: React.Dispatch<React.SetStateAction<string | null>>;
 };
+
+// Component--------------------------------------------------------------
 function CharacterCard({ id, name, species, handleSelect}: CharacterProps) {
   return (
     <div className="card" onClick={()=> handleSelect(id)}>

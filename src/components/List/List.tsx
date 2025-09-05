@@ -16,6 +16,8 @@ type ListProps = {
   handleSelect: React.Dispatch<React.SetStateAction<string | null>>;
   showSideBar: boolean;
 };
+
+//Component----------------------------------------
 function List({
   characters,
   loading,
@@ -26,9 +28,11 @@ function List({
   handleSelect,
 }: ListProps) {
   return (
+    //Only displays on mobile if showSideBar is true
     <div className={clsx("list",{
       display: showSideBar
     })}>
+      {/* First loader only displays at the top on first render (network status === 1) */}
       {loading && networkStatus === 1 ? (
         <Loader />
       ) : error ? (
@@ -50,6 +54,7 @@ function List({
       )}
       <div ref={loadMoreRef}></div>
 
+      {/* On different refetchs the loader appears at the end of the list */}
       {loading && networkStatus !== 1 && <Loader />}
     </div>
   );

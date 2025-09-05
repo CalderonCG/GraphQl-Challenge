@@ -89,6 +89,7 @@ function App() {
   return (
     <div className="app">
       <div className="app_header">
+        {/* Sidebar controls---------------------------------------------- */}
         {showSideBar ? (
           <IoClose className="app_header_icon" onClick={()=>setShowSideBar(false)} />
         ) : (
@@ -97,6 +98,7 @@ function App() {
         <p>Ravn Rick and Morty Registry</p>
       </div>
       <div className="app_container">
+        {/* List of characters ------------------------------------------------- */}
         <List
           characters={characters}
           loading={loading}
@@ -106,6 +108,8 @@ function App() {
           networkStatus={networkStatus}
           showSideBar={showSideBar}
         />
+
+        {/* Character details----------------------------------------------------- */}
         <CharacterDetails
           characterDetails={characterDetails}
           loading={characterLoading}

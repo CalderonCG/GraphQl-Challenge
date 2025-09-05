@@ -1,5 +1,7 @@
 import { gql } from "@apollo/client";
 
+
+//Fetch all characters--------------------
 export const GET_CHARACTERS = gql`
 query GetCharacters($page: Int!){
   characters(page: $page){
@@ -17,6 +19,7 @@ query GetCharacters($page: Int!){
 }
 `
 
+//Fetch character by ID
 export const GET_BY_ID= gql`
 query GetCharacterById($id: ID!) {
   character(id: $id){

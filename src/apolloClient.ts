@@ -10,8 +10,8 @@ export const client = new ApolloClient({
     typePolicies: {
       Query: {
         fields: {
-          characters: {
-            keyArgs: false, // ignorar variables, tratar todo como una lista continua
+          characters: { //Merge new fetch with last result
+            keyArgs: false, 
             merge(existing = {}, incoming) {
               return {
                 ...incoming,
