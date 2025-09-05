@@ -1,0 +1,20 @@
+@use "../../styles/variables" as v;
+
+.detail {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid v.$Border;
+  padding: 14px 0px;
+
+  &_name {
+    font-size: 17px;
+    font-weight: 700;
+    color: v.$Text_Light;
+  }
+  &_value {
+    font-size: 17px;
+    font-weight: 700;
+    color: v.$Text_Dark;
+  }
+}
