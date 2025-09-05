@@ -1,12 +1,28 @@
-import CharacterCard from '../CharacterCard/CharacterCard'
-import './List.scss'
+import type { CharacterArray } from "../../App";
+import CharacterCard from "../CharacterCard/CharacterCard";
+import "./List.scss";
 
-function List() {
+//Types-------------------
+type ListProps = {
+  characters: CharacterArray;
+  loading: boolean;
+  handleSelect: React.Dispatch<React.SetStateAction<string | null>>
+};
+function List({ characters, loading, handleSelect }: ListProps) {
+  if (loading) {
+    return <p>Loading....</p>;
+  }
+  if (characters?.length === 0) {
+    return <p>No hay personajes</p>;
+  }
   return (
     <div className="list">
-        <CharacterCard/>
+      {characters?.map((character) => (
+        <CharacterCard key={character?.id} id={character?.id} name={character?.name}
+        species={character?.species} handleSelect={handleSelect}/>
+      ))}
     </div>
-  )
+  );
 }
 
-export default List
+export default List;
