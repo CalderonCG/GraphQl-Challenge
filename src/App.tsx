@@ -17,7 +17,7 @@ function App() {
 
   //Queries---------------------------------------------------
   //All characters
-  const {data, loading} = useQuery<GetCharactersQuery, GetCharactersQueryVariables>(GET_CHARACTERS, {
+  const {data, loading, error} = useQuery<GetCharactersQuery, GetCharactersQueryVariables>(GET_CHARACTERS, {
     variables:{
       page: 1
     }
@@ -34,7 +34,7 @@ function App() {
     }
   )
 
-  console.log(characterDetails)
+  console.log(error?.message)
 
 
   //Component-------------------------------------
@@ -42,8 +42,8 @@ function App() {
     <div className="app">
       <div className="app_header"> Ravn Rick and Morty Registry</div>
       <div className="app_container">
-        <List characters={characters} loading={loading} handleSelect={setSelectedCharacter}/>
-        <CharacterDetails characterDetails={characterDetails}/>
+        <List characters={characters} loading={loading} handleSelect={setSelectedCharacter} error={error}/>
+        <CharacterDetails characterDetails={characterDetails} loading={characterLoading}/>
       </div>
     </div>
   );

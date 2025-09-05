@@ -1,0 +1,18 @@
+@use '../../styles/variables' as v;
+
+.loader {
+  display: flex;
+  align-items: center; // centra horizontalmente
+  justify-content: center; // centra verticalmente si quieres
+
+  &_icon_wrapper {
+    display: flex;
+    transform: scale(0.5);
+    transform-origin: center;
+  }
+
+  &_label{
+    color: v.$Text_Light;
+    font-weight: 700;
+  }
+}
